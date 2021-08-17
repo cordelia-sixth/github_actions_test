@@ -1,8 +1,7 @@
-name: Github Actions Test
+name: GitHub Actions Demo
 on: [push]
 jobs:
-  First job:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - run: echo "Hello"
