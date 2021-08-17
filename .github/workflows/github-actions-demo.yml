@@ -1,2 +1,7 @@
 name: Github Actions Test
 on: [push]
+jobs:
+  First job:
+    runs-on: ubuntu-latest
+    steps:
+      run: echo "Hello"
