@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "helloworld-myapp"
           heroku_email: "q8tpk5yaqkutovncyabe@gmail.com"
-
+          branch: ${{ github.ref }}
