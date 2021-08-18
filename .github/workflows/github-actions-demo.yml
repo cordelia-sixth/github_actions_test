@@ -10,4 +10,3 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: "helloworld-myapp"
           heroku_email: "q8tpk5yaqkutovncyabe@gmail.com"
-          branch: ${{ github.ref }}
