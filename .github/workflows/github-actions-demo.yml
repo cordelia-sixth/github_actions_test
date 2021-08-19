@@ -1,10 +1,11 @@
 name: Github Action with Rspec
 on: [push]
 jobs:
-  Run Rspec:
+  Run-Rspec:
     runs-on: ubuntu-latest
     steps:
       - uses: ruby/setup-ruby@v1
+
       # - uses: actions/checkout@v2
       # - uses: actions/setup-node@v1
       # - run: npm install -g bats
