@@ -4,19 +4,19 @@ on:  # トリガーとするイベントを定義
   push:  # repositoryにpush
     branches: [ main ]  # mainブランチが対象
 
-jobs:  # jobを定義
+jobs:  # 各jobを定義
   test:  # job name
     runs-on: ubuntu-latest  # jobを実行する環境を指定
     steps:  # 各実行step
-      - uses: actions/checkout@v2
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
+      - uses: actions/checkout@v2  # 使用するソースコード。repositoryからdownloadする
+      - name: Set up Ruby  # step name
+        uses: ruby/setup-ruby@v1  # # 使用するソースコード。repositoryからdownloadする
+        with:  # 付属情報
           ruby-version: 3.0
-      - name: Install dependencies
-        run: bundle install
-      - name: Run tests
-        run: bundle exec rake
+      - name: Install dependencies  # step name
+        run: bundle install  # 実行するcommand
+      - name: Run tests  # step name
+        run: bundle exec rspec
 
       # - uses: actions/checkout@v2
       # - uses: actions/setup-node@v1
