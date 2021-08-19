@@ -1,12 +1,24 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
+  Run Rspec:  # このjobの名前
+    runs-on: ubuntu-latest  # このjobを実行するコンテナ
     steps:
       - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      - name: Set up Ruby 3.0
+        uses: action/setup-ruby@v1
         with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: "thawing-reaches-18664"
-          heroku_email: "q8tpk5yaqkutovncyabe@gmail.com"
+          ruby-version: 3.0.2
+      - name: Test with Rspec
+        run: |
+          gem install bundler
+          bundle install --path vendor/bundle --quiet --jobs 4 --retry 3
+          bundle exec rspec
+
+    # steps:
+    #   - uses: actions/checkout@v2
+    #   - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+    #     with:
+    #       heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+    #       heroku_app_name: "thawing-reaches-18664"
+    #       heroku_email: "q8tpk5yaqkutovncyabe@gmail.com"
