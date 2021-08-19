@@ -1,10 +1,22 @@
-name: Github Action with Rspec
-on: [push]
-jobs:
-  Run-Rspec:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ruby/setup-ruby@v1
+name: Github Action with Rspec  # workflow name
+
+on:  # トリガーとするイベントを定義
+  push:  # repositoryにpush
+    branches: [ main ]  # mainブランチが対象
+
+jobs:  # jobを定義
+  test:  # job name
+    runs-on: ubuntu-latest  # jobを実行する環境を指定
+    steps:  # 各実行step
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Install dependencies
+        run: bundle install
+      - name: Run tests
+        run: bundle exec rake
 
       # - uses: actions/checkout@v2
       # - uses: actions/setup-node@v1
