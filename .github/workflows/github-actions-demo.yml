@@ -1,7 +1,7 @@
-name: GitHub Actions Demo
+name: Github Action with Rspec
 on: [push]
 jobs:
-  name: Run Rspec  # このjobの名前
+  Run Rspec # このjobの名前
     runs-on: ubuntu-latest  # このjobを実行するコンテナ
     steps:
       - uses: actions/checkout@v2
