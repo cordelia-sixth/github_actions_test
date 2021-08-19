@@ -1,19 +1,26 @@
 name: Github Action with Rspec
 on: [push]
 jobs:
-  Run Rspec # このjobの名前
-    runs-on: ubuntu-latest  # このjobを実行するコンテナ
+  check-bats-version:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Ruby 3.0
-        uses: action/setup-ruby@v1
-        with:
-          ruby-version: 3.0.2
-      - name: Test with Rspec
-        run: |
-          gem install bundler
-          bundle install --path vendor/bundle --quiet --jobs 4 --retry 3
-          bundle exec rspec
+      - uses: actions/setup-node@v1
+      - run: npm install -g bats
+      - run: bats -v
+  # Run Rspec # このjobの名前
+  #   runs-on: ubuntu-latest  # このjobを実行するコンテナ
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Set up Ruby 3.0
+  #       uses: action/setup-ruby@v1
+  #       with:
+  #         ruby-version: 3.0.2
+  #     - name: Test with Rspec
+  #       run: |
+  #         gem install bundler
+  #         bundle install --path vendor/bundle --quiet --jobs 4 --retry 3
+  #         bundle exec rspec
 
     # steps:
     #   - uses: actions/checkout@v2
