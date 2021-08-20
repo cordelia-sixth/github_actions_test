@@ -36,9 +36,9 @@ jobs:  # 各jobを定義
       - name: Install dependencies  # step name
         run: bundle install  # 実行するcommand 
 
-      - name: crete DB
-        run: |
-          bin/rails db:create  
+      # - name: crete DB
+      #   run: |
+      #     bin/rails db:create  
       # bin/rails db:schema:load
 
       # - name: Run tests  # step name
