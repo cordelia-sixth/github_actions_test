@@ -30,6 +30,7 @@ jobs:  # 各jobを定義
       - name: setup MySQL
         run: |
           sudo apt-get update
+          sudo apt-get install mysql-client
           sudo apt-get install libmysqlclient-dev
 
       - name: Install dependencies  # step name
