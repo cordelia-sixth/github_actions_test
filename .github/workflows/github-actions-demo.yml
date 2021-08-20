@@ -38,7 +38,7 @@ jobs:  # 各jobを定義
 
       - name: crete DB
         run: |
-          bundle exec rails db:create  
+          rails s
 
 
       # - name: Run tests  # step name
