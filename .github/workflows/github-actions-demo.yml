@@ -33,7 +33,7 @@ jobs:  # 各jobを定義
           sudo apt-get install libmysqlclient-dev
 
       - name: Install dependencies  # step name
-        run: bundle install  # 実行するcommand
+        run: bundle install  # 実行するcommand 
 
       - name: crete DB
         run: |
