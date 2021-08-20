@@ -30,6 +30,11 @@ jobs:  # 各jobを定義
           bundle-cache: true
       - name: Install dependencies  # step name
         run: bundle install  # 実行するcommand
+
+      - name: Setup DB
+        run: bin/rails db:create
+        run: bin/rails db:migrate
+        
       - name: Run tests  # step name
         run: bundle exec rspec
 
