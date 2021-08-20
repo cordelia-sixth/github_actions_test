@@ -32,9 +32,10 @@ jobs:  # 各jobを定義
         run: bundle install  # 実行するcommand
 
       - name: Setup DB
-        run: bin/rails db:create
-        run: bin/rails db:migrate
-        
+        run: |
+          bin/rails db:create
+          bin/rails db:migrate
+
       - name: Run tests  # step name
         run: bundle exec rspec
 
