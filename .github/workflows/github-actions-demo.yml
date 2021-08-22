@@ -5,12 +5,12 @@ on:  # トリガーとするイベントを定義
     branches: [ main ]  # mainブランチが対象
 
 jobs:  # 各jobを定義
-  test:  # job name
+  init:  # job name
     runs-on: ubuntu-latest  # jobを実行する環境を指定
     env:
       RAILS_ENV: test
       DB_HOST: 127.0.0.1
-      DB_POPT: 3306
+      DB_PORT: 3306
 
     # サービスコンテナ
     services:
@@ -30,13 +30,7 @@ jobs:  # 各jobを定義
         uses: ruby/setup-ruby@v1  # # 使用するソースコード。repositoryからdownloadする
         with:  # 付属情報
           ruby-version: 3.0
-          bundle-cache: true
-
-      - name: setup MySQL
-        run: |
-          sudo apt update
-          sudo apt install mysql-client
-          sudo apt install libmysqlclient-dev
+          bundler-cache: true
 
       - name: Install bundler  # step name
         run: |
@@ -45,6 +39,7 @@ jobs:  # 各jobを定義
       
       - name: Check yarn
         run: |
+          yarn install
           yarn install --check-files
       
       - name: Migration
