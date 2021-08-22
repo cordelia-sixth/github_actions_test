@@ -38,8 +38,8 @@ jobs:  # 各jobを定義
 
       - name: Check Environment
         run: |
-          where yarn
-          where node
+          yarn -v
+          node -v
 
 
       # - name: Run tests  # step name
