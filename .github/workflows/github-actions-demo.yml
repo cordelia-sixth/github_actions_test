@@ -15,12 +15,14 @@ jobs:  # 各jobを定義
     # サービスコンテナ
     services:
       mysql:  # コンテナ名
-        image: mysql:8.0  # 使いたいimageを指定
+        image: mysql:8.0.23  # 使いたいimageを指定
+        volumes:
+          - mysqlconf.d:/etc/mysql/conf.d
         env:  # 環境変数を定義
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           BIND_ADDRESS: 0.0.0.0
-        # ports:  # 使うportを指定。ポートフォワードできる
-        #   - 3306
+        ports:  # 使うportを指定。ポートフォワードできる
+          - 3306:3306
 
     steps:  # 各実行step
       - uses: actions/checkout@v2  # 使用するソースコード。repositoryからdownloadする
@@ -28,6 +30,7 @@ jobs:  # 各jobを定義
         uses: ruby/setup-ruby@v1  # # 使用するソースコード。repositoryからdownloadする
         with:  # 付属情報
           ruby-version: 3.0
+          bundle-cache: true
 
       - name: setup MySQL
         run: |
