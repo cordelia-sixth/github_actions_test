@@ -8,17 +8,14 @@ jobs:  # 各jobを定義
   test:  # job name
     runs-on: ubuntu-latest  # jobを実行する環境を指定
 
-    # services:
-    #   mysql:  # service name
-    #     image: mysql:8.0  # 使いたいimageを指定
-    #     env:  # 環境変数を定義
-    #       MYSQL_HOST: 127.0.0.1
-    #       MYSQL_DB: github_actions_test
-    #       MYSQL_USER: root
-    #       MYSQL_ALLOW_EMPTY_PASSWORD: yes
-    #       MYSQL_PASSWORD:
-    #     ports:  # 使うportを指定。ポートフォワードできる
-    #       - 3306
+    services:
+      mysql:  # service name
+        image: mysql:8.0  # 使いたいimageを指定
+        env:  # 環境変数を定義
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+        ports:  # 使うportを指定。ポートフォワードできる
+          - 3306
 
     steps:  # 各実行step
       - uses: actions/checkout@v2  # 使用するソースコード。repositoryからdownloadする
@@ -37,6 +34,10 @@ jobs:  # 各jobを定義
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3 --path vendor/bundle
+      
+      - name: Migration
+        run: |
+          bundle exec rails db:create
 
   # - name: Run tests  # step name
   #   run: bundle exec rspec
