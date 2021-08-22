@@ -36,9 +36,10 @@ jobs:  # 各jobを定義
       - name: Install dependencies  # step name
         run: bundle install  # 実行するcommand 
 
-      - name: Start Rails
+      - name: Check Environment
         run: |
-          bundle exec rails s
+          where yarn
+          where node
 
 
       # - name: Run tests  # step name
