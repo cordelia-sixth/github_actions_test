@@ -33,14 +33,8 @@ jobs:  # 各jobを定義
           sudo apt install mysql-client
           sudo apt install libmysqlclient-dev
 
-      - name: Install dependencies  # step name
-        run: bundle install  # 実行するcommand 
-
-      - name: Check Environment
-        run: |
-          yarn -v
-          node -v
-
+      - name: Install bundler  # step name
+        run: gem install bundler  # 実行するcommand 
 
       # - name: Run tests  # step name
       #   run: bundle exec rspec
