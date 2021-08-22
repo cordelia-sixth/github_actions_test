@@ -1,22 +1,22 @@
 name: Github Action with Rspec  # workflow name
 
-on:  # トリガーとするイベントを定義
+on:  # トリガーにするイベントを定義
   push:  # repositoryにpush
     branches: [ main ]  # mainブランチが対象
 
-jobs:  # 各jobを定義
+jobs:  # jobを定義していく
   init:  # job name
-    runs-on: ubuntu-latest  # jobを実行する環境を指定
-    env:
+    runs-on: ubuntu-latest  # jobを実行するホストを指定
+    env: # 環境変数を定義
       RAILS_ENV: test
       DB_HOST: 127.0.0.1
       DB_PORT: 3306
 
-    # サービスコンテナ
+    # コンテナを使いたい時はこれを定義する
     services:
       mysql:  # コンテナ名
         image: mysql:8.0.23  # 使いたいimageを指定
-        volumes:
+        volumes:  # コンテナにmountしたいファイルを定義
           - mysqlconf.d:/etc/mysql/conf.d
         env:  # 環境変数を定義
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
@@ -32,7 +32,7 @@ jobs:  # 各jobを定義
           ruby-version: 3.0
           bundler-cache: true
 
-      - name: Install bundler  # step name
+      - name: Install bundler
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3 --path vendor/bundle
@@ -45,6 +45,9 @@ jobs:  # 各jobを定義
       - name: Migration
         run: |
           bundle exec rails db:create
+      
+      - name: Run rspec
+        run: bundle exec rspec
 
   # - name: Run tests  # step name
   #   run: bundle exec rspec
