@@ -34,15 +34,17 @@ jobs:  # 各jobを定義
           sudo apt install libmysqlclient-dev
 
       - name: Install bundler  # step name
-        run: gem install bundler  # 実行するcommand 
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3 --path vendor/bundle
 
-      # - name: Run tests  # step name
-      #   run: bundle exec rspec
+  # - name: Run tests  # step name
+  #   run: bundle exec rspec
 
-      # - uses: actions/checkout@v2
-      # - uses: actions/setup-node@v1
-      # - run: npm install -g bats
-      # - run: bats -v
+  # - uses: actions/checkout@v2
+  # - uses: actions/setup-node@v1
+  # - run: npm install -g bats
+  # - run: bats -v
   # Run Rspec # このjobの名前
   #   runs-on: ubuntu-latest  # このjobを実行するコンテナ
   #   steps:
