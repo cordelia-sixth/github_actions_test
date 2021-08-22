@@ -7,6 +7,9 @@ on:  # トリガーとするイベントを定義
 jobs:  # 各jobを定義
   test:  # job name
     runs-on: ubuntu-latest  # jobを実行する環境を指定
+    env:
+      RAILS_ENV: test
+      DB_HOST: 127.0.0.1
 
     services:
       mysql:  # service name
