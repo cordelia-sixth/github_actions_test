@@ -17,8 +17,8 @@ jobs:  # 各jobを定義
         env:  # 環境変数を定義
           MYSQL_HOST: 127.0.0.1
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
-        ports:  # 使うportを指定。ポートフォワードできる
-          - 3306
+        # ports:  # 使うportを指定。ポートフォワードできる
+        #   - 3306
 
     steps:  # 各実行step
       - uses: actions/checkout@v2  # 使用するソースコード。repositoryからdownloadする
