@@ -29,16 +29,16 @@ jobs:  # 各jobを定義
 
       - name: setup MySQL
         run: |
-          sudo apt-get update
-          sudo apt-get install mysql-client
-          sudo apt-get install libmysqlclient-dev
+          sudo apt update
+          sudo apt install mysql-client
+          sudo apt install libmysqlclient-dev
 
       - name: Install dependencies  # step name
         run: bundle install  # 実行するcommand 
 
-      - name: crete DB
+      - name: Start Rails
         run: |
-          rails s
+          bundle exec rails s
 
 
       # - name: Run tests  # step name
