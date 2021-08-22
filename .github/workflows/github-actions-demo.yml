@@ -11,12 +11,13 @@ jobs:  # 各jobを定義
       RAILS_ENV: test
       DB_HOST: 127.0.0.1
 
+    # サービスコンテナ
     services:
-      mysql:  # service name
+      mysql:  # コンテナ名
         image: mysql:8.0  # 使いたいimageを指定
         env:  # 環境変数を定義
-          MYSQL_HOST: 127.0.0.1
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          BIND_ADDRESS: 0.0.0.0
         # ports:  # 使うportを指定。ポートフォワードできる
         #   - 3306
 
