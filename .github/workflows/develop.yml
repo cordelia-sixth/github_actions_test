@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
   
     steps:
-      - name: Check branch
       - uses: actions/checkout@v2
+      - name: Check branch
       - run: git status
       - run: git branch
