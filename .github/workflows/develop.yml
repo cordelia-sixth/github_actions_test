@@ -10,6 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:  # 各実行step
       - uses: actions/checkout@v2  # 使用するソースコード。repositoryからdownloadする
-      - name: Setup Ruby 3.0  # step name
       - run: git status
       - run: git branch
