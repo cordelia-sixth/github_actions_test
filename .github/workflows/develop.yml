@@ -1,0 +1,16 @@
+name: develop
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Check branch
+      - uses: actions/checkout@v2
+      - run: |
+        git status
+        git branch
