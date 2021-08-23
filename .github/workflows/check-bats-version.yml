@@ -1,10 +1,33 @@
+# workflowの名前
 name: check-bats-version
+
+# workflowを実行するトリガーとなるevent
 on: [push]
+
+# workflow内で実行される各jobをグループ化する
 jobs:
+
+  # jobの名前
   check-bats-version:
+
+    # jobが実行されるrunner
     runs-on: ubuntu-latest
+
+    # 各stepをグループ化する
     steps:
+
+      # step 1
+      # runnerにこのrepositoryをcheckoutするactionを実行する
       - uses: actions/checkout@v2
+
+      # step 2
+      # runnerにnodeをインストールするaction
       - uses: actions/setup-node@v1
+
+      # step 3
+      # npmでbatsをinstallする
       - run: npm install -g bats
+
+      # step 4
+      # batsコマンドを実行
       - run: bats -v
