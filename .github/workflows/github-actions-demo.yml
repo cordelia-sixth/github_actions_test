@@ -2,7 +2,7 @@ name: Github Action with Rspec  # workflow name
 
 on:  # トリガーにするイベントを定義
   push:  # repositoryにpush
-    branches: [ main ]  # mainブランチが対象
+    branches: [ develop ]  # mainブランチが対象
 
 jobs:  # jobを定義していく
   init:  # job name
@@ -16,8 +16,8 @@ jobs:  # jobを定義していく
     services:
       mysql:  # コンテナ名
         image: mysql:8.0.23  # 使いたいimageを指定
-        volumes:  # コンテナにmountしたいファイルを定義
-          - mysqlconf.d:/etc/mysql/conf.d
+        # volumes:  # コンテナにmountしたいファイルを定義
+        #   - mysqlconf.d:/etc/mysql/conf.d
         env:  # 環境変数を定義
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           BIND_ADDRESS: 0.0.0.0
