@@ -8,6 +8,6 @@ jobs:
   send-message:
     runs-on: ubuntu-latest
     steps:
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL　}}
+        - uses: rtCamp/action-slack-notify@v2
+          env:
+            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL　}}
