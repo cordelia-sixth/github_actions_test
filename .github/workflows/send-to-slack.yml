@@ -13,4 +13,4 @@ jobs:
           #   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL　}}
           #   SLACK_CHANNEL: notifications-from-github
           #   SLACK_MESSAGE: 'Post Content :rocket:'
-        - run: curl -X POST -H 'Content-type: application/json' --data '{"text":"処理が終了しました！"}' ${{ secrets.SLACK_WEBHOOK_URL　}}
+          run: curl -X POST -H 'Content-type: application/json' --data '{"text":"処理が終了しました！"}' ${{ secrets.SLACK_WEBHOOK_URL　}}
