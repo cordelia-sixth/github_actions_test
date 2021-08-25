@@ -13,5 +13,6 @@ jobs:
             curl -X POST \
                  -H 'Content-type: application/json; charset=utf-8' \
                  --data '{
-                   "text":"処理が終了しました！"}' \
+                   "text":"処理が終了しました！",
+                   "GITHUB_ACTION_PATH": '${{ GITHUB_ACTION_PATH }}'}' \
                  ${{ secrets.SLACK_WEBHOOK_URL　}}
