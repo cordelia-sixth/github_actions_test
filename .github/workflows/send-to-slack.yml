@@ -13,13 +13,6 @@ jobs:
         - run: echo "Repository URL ${{ github.event.repository.url }}"
         - run: echo "GitHub Actions URL ${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
         - run: |
-            data=$(cat <<EOF
-            {
-              "author_name": "${{ github.actor }}",
-              "title": "Success"
-            }
-            EOF
-            )
             curl -X POST \
                  -H "Content-type: application/json; charset=utf-8" \
                  --data @message.json \
