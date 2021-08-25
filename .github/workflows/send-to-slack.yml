@@ -10,14 +10,4 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         - run: |
-          data=$(cat <<EOF
-          {
-            "text":"Succses",
-            "GITHUB_ACTION_PATH": \${{ GITHUB_ACTION_PATH }}
-          }
-          EOF
-          )
-            curl -X POST \
-                 -H 'Content-type: application/json; charset=utf-8' \
-                 --data '$data' \
-                 ${{ secrets.SLACK_WEBHOOK_URL　}}
+          GITHUB_ACTIONS_PATH= ${{ GITHUB_ACTIONS_PATH }}
