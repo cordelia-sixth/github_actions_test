@@ -7,8 +7,9 @@ on:
 jobs:
   send-message:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_WORKFLOW: ${{ GITHUB_WORKFLOW }}
     steps:
         - uses: actions/checkout@v2
         - run: |
-            FOO= ${{ CI }}
-            echo "The FOO is ${FOO}"
+            echo "The FOO is $GITHUB_WORKFLOW"
