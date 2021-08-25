@@ -10,7 +10,9 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         - run: |
-            curl -X POST -H \
-            'Content-type application/json' \
-            --data '{"text":"処理が終了しました！"}' \
-            ${{ secrets.SLACK_WEBHOOK_URL　}}
+            curl -X POST \
+                 -H 'Content-type: application/json; charset=utf-8' \
+                 --data '{
+                   "channel": "notifications-from-github",
+                   "text":"処理が終了しました！"}' \
+                 ${{ secrets.SLACK_WEBHOOK_URL　}}
