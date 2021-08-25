@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v2
-        - run: echo "Author name ${{ github.actor }}"
-        - run: echo "Repository URL ${{ github.event.repository.url }}"
-        - run: echo "GitHub Actions URL ${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
+        # - run: echo "Author name ${{ github.actor }}"
+        # - run: echo "Repository URL ${{ github.event.repository.url }}"
+        # - run: echo "GitHub Actions URL ${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
         - run: |
             curl -X POST \
                  -H "Content-type: application/json; charset=utf-8" \
-                 -d .github/workflows/message.json \
+                 -d payload={"username": "webhook", "text": "Hello"} \
                  ${{ secrets.SLACK_WEBHOOK_URL }}
