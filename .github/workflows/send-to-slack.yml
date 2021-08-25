@@ -8,8 +8,9 @@ jobs:
   send-message:
     runs-on: ubuntu-latest
     steps:
-        - uses: rtCamp/action-slack-notify@v2
-          env:
-            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL　}}
-            SLACK_CHANNEL: notifications-from-github
-            SLACK_MESSAGE: 'Post Content :rocket:'
+        - uses: actions/checkout@v2
+          # env:
+          #   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL　}}
+          #   SLACK_CHANNEL: notifications-from-github
+          #   SLACK_MESSAGE: 'Post Content :rocket:'
+        - run: curl -X POST -H 'Content-type: application/json' --data '{"text":"処理が終了しました！"}' ${{ secrets.SLACK_WEBHOOK_URL　}}
