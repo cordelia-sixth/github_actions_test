@@ -14,5 +14,6 @@ jobs:
                  -H 'Content-type: application/json; charset=utf-8' \
                  --data '{
                    "channel": "notifications-from-github",
+                   "username": "Github-actions"
                    "text":"処理が終了しました！"}' \
                  ${{ secrets.SLACK_WEBHOOK_URL　}}
