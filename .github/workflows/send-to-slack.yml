@@ -15,5 +15,13 @@ jobs:
         - run: |
             curl -X POST \
                  -H "Content-type: application/json; charset=utf-8" \
-                 -d '{"text":"Hello"}' \
+                 -d '{"blocks": [ 
+                   {
+                     "type": "section",
+                     "text": {
+                       "type": "mrkdwn",
+                       "text": "New Paid Time Off request from <example.com|Fred Enriquez>\n\n<https://example.com|View request>"
+                     }
+                   }
+                 ] }' \
                  ${{ secrets.SLACK_WEBHOOK_URL }}
