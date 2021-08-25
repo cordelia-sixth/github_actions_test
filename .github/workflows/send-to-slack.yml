@@ -12,4 +12,4 @@ jobs:
     steps:
         - uses: actions/checkout@v2
         - run: |
-            echo "The FOO is $GITHUB_WORKFLOW"
+            echo "The FOO is ${GITHUB_WORKFLOW}"
