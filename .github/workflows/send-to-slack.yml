@@ -21,7 +21,7 @@ jobs:
                             "type": "section",
                               "text": {
                                 "type": "mrkdwn",
-                                "text": "New Paid Time Off request from <example.com|Fred Enriquez>\n\n<https://example.com|View request>"
+                                "text": "Test Success!"
                               }
                           },
                           {
@@ -29,6 +29,12 @@ jobs:
                               "text": {
                                 "type": "mrkdwn",
                                 "text": "${{ github.actor }}"
+                              }
+                          },
+                          {
+                            "type": "section",
+                              "text": {
+                                "title": "Github Actions URL"
                               }
                           }
                         ] 
