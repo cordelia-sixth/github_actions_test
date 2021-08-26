@@ -23,7 +23,7 @@ jobs:
                             "type": "section",
                               "text": {
                                 "type": "mrkdwn",
-                                "text": "*${{ GITHUB_WORKFLOW }}*"
+                                "text": "*${GITHUB_WORKFLOW}*"
                               }
                           },
                           {
