@@ -37,6 +37,13 @@ jobs:
                                 "type": "mrkdwn",
                                 "text": "*Github Repository URL*\n${{ github.event.repository.url }}"
                               }
+                          },
+                          {
+                            "type": "section",
+                              "text": {
+                                "type": "mrkdwn",
+                                "text": "*Github Actions URL*\n${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
+                              }
                           }
                         ] 
                       }' \
