@@ -7,6 +7,8 @@ on:
 jobs:
   send-message:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_WORKFLOW: ${{ GITHUB_WORKFLOW }}
     steps:
         - uses: actions/checkout@v2
         # - run: echo "Author name ${{ github.actor }}"
@@ -55,5 +57,3 @@ jobs:
                         ] 
                       }' \
                  ${{ secrets.SLACK_WEBHOOK_URL }}
-        env:
-          GITHUB_WORKFLOW: GITHUB_WORKFLOW
