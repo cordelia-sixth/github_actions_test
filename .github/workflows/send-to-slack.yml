@@ -55,3 +55,5 @@ jobs:
                         ] 
                       }' \
                  ${{ secrets.SLACK_WEBHOOK_URL }}
+        env:
+          GITHUB_WORKFLOW: GITHUB_WORKFLOW
