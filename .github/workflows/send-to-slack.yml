@@ -23,7 +23,7 @@ jobs:
                             "type": "section",
                               "text": {
                                 "type": "mrkdwn",
-                                "text": "$HELLO"
+                                "text": "${{ env.HELLO }}"
                               }
                           },
                           {
