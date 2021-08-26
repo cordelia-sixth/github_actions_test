@@ -16,7 +16,14 @@ jobs:
             curl -X POST \
                  -H "Content-type: application/json; charset=utf-8" \
                  -d '{
-                        "blocks": [ 
+                        "blocks": [
+                          {
+                            "type": "section",
+                              "text": {
+                                "type": "mrkdwn",
+                                "text": "*${{ GITHUB_WORKFLOW }}*"
+                              }
+                          },
                           {
                             "type": "section",
                               "text": {
@@ -35,7 +42,7 @@ jobs:
                             "type": "section",
                               "text": {
                                 "type": "mrkdwn",
-                                "text": "*Github Repository URL*\n${{ github.event.repository.url }}"
+                                "text": "*Repository URL*\n${{ github.event.repository.url }}"
                               }
                           },
                           {
