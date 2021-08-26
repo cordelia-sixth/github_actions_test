@@ -34,6 +34,7 @@ jobs:
                           {
                             "type": "section",
                               "text": {
+                                "type": "mrkdwn",
                                 "title": "Github Actions URL"
                               }
                           }
