@@ -35,7 +35,7 @@ jobs:
                             "type": "section",
                               "text": {
                                 "type": "mrkdwn",
-                                "text": "Github Actions URL"
+                                "text": "*Github Repository URL*\n${{ github.event.repository.url }}"
                               }
                           }
                         ] 
