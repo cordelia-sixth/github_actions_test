@@ -8,7 +8,8 @@ jobs:
   send-message:
     runs-on: ubuntu-latest
     env:
-      HELLO: ${{ github.actor }}
+      # HELLO: ${{ github.actor }}
+      VAR: ${{ GITHUB_WORKFLOW }}
     steps:
         - uses: actions/checkout@v2
         # - run: echo "Author name ${{ github.actor }}"
@@ -23,7 +24,7 @@ jobs:
                             "type": "section",
                               "text": {
                                 "type": "mrkdwn",
-                                "text": "${{ env.HELLO }}"
+                                "text": "${{ env.VAR }}"
                               }
                           },
                           {
