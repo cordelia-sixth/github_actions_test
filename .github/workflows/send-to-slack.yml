@@ -28,7 +28,7 @@ jobs:
                             "type": "section",
                               "text": {
                                 "type": "mrkdwn",
-                                "text": "${{ github.actor }}"
+                                "text": "${{ github.event.sender.avatar_url }}${{ github.actor }}"
                               }
                           },
                           {
