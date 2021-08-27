@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # HELLO: ${{ github.actor }}
-      VAR: '${GITHUB_REF}'
+      VAR: "'$GITHUB_REF'"
     steps:
         - uses: actions/checkout@v2
         # - run: echo "Author name ${{ github.actor }}"
