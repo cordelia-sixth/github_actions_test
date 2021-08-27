@@ -24,14 +24,14 @@ jobs:
                             "type": "section",
                               "text": {
                                 "type": "mrkdwn",
-                                "text": "${{ env.VAR }}"
+                                "text": "*${{ github.workflow }}*/n${{ job.status }}"
                               }
                           },
                           {
                             "type": "section",
                               "text": {
                                 "type": "mrkdwn",
-                                "text": "Test Success!"
+                                "text": ""
                               }
                           },
                           {
