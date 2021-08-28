@@ -21,7 +21,7 @@ jobs:
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "${{ github.workflow }} *${{ job.status }}!*"
+                                  "text": "${{ github.workflow }} ###${{ job.status }}!"
                                 }
                               },
                               {
