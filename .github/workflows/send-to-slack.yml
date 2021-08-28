@@ -15,14 +15,14 @@ jobs:
                  -d '{
                         "attachments": [
                           {
-                            "color": "#2dde16",
+                            "color": "#f2c744",
                             "blocks": [
                               {
-                                "type": "sections",
-                                  "text": {
-                                    "type": "mrkdwn",
-                                    "text": "${{ github.workflow }} ${{ job.status }}"
-                                  }
+                                "type": "section",
+                                "text": {
+                                  "type": "mrkdwn",
+                                  "text": "${{ github.workflow }} ${{ job.status }}"
+                                }
                               },
                               {
                                 "type": "section",
