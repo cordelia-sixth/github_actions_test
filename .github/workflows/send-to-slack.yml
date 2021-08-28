@@ -7,54 +7,32 @@ on:
 jobs:
   send-message:
     runs-on: ubuntu-latest
-    env:
-      # HELLO: ${{ github.actor }}
-      VAR: ${{ github.ref }}
     steps:
         - uses: actions/checkout@v2
-        # - run: echo "Author name ${{ github.actor }}"
-        # - run: echo "Repository URL ${{ github.event.repository.url }}"
-        # - run: echo "GitHub Actions URL ${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
         - run: |
             curl -X POST \
                  -H "Content-type: application/json; charset=utf-8" \
                  -d '{
-                        "blocks": [
+                        "attachments": [
                           {
-                            "type": "section",
-                              "text": {
-                                "type": "mrkdwn",
-                                "text": "${{ github.workflow }}"
+                            "color": "#2dde16",
+                            "blocks": [
+                              {
+                                "type": "sections",
+                                  "text": {
+                                    "type": "mrkdwn",
+                                    "text": "${{ github.workflow }} ${{ job.status }}"
+                                  }
+                              },
+                              {
+                                "type": "section",
+                                "text": {
+                                  "type": "mrkdwn",
+                                  "text": "${{ github.actor }}"
+                                }
                               }
-                          },
-                          {
-                            "type": "section",
-                              "text": {
-                                "type": "mrkdwn",
-                                "text": "${{ job.status }}"
-                              }
-                          },
-                          {
-                            "type": "section",
-                              "text": {
-                                "type": "mrkdwn",
-                                "text": "${{ github.event.sender.avatar_url }}${{ github.actor }}"
-                              }
-                          },
-                          {
-                            "type": "section",
-                              "text": {
-                                "type": "mrkdwn",
-                                "text": "*Repository URL*\n${{ github.event.repository.url }}"
-                              }
-                          },
-                          {
-                            "type": "section",
-                              "text": {
-                                "type": "mrkdwn",
-                                "text": "*Github Actions URL*\n${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
-                              }
+                            ]
                           }
-                        ] 
+                        ]
                       }' \
-                 ${{ secrets.SLACK_WEBHOOK_URL }}
+                    ${{ secrets.SLACK_WEBHOOK_URL }}
