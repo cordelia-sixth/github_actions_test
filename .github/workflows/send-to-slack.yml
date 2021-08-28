@@ -21,7 +21,7 @@ jobs:
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "${{ github.workflow }} *${{ job.status }}!＊"
+                                  "text": "${{ github.workflow }} *${{ job.status }}!*"
                                 }
                               },
                               {
@@ -35,7 +35,7 @@ jobs:
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "*Commit:*\n${{ github.event.commits.url }}"
+                                  "text": "*Commit:*\n${{ github.event.commits_url }}"
                                 }
                               }
                             ]
