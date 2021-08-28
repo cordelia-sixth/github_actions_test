@@ -15,20 +15,20 @@ jobs:
                  -d '{
                         "attachments": [
                           {
-                            "color": "#f2c744",
+                            "color": "#05f234",
                             "blocks": [
                               {
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "${{ github.workflow }} ${{ job.status }}"
+                                  "text": "${{ github.workflow }} *${{ job.status }}!*"
                                 }
                               },
                               {
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "${{ github.actor }}"
+                                  "text": "*Workflow URL:*\n${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
                                 }
                               }
                             ]
