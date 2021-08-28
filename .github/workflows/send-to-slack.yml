@@ -21,14 +21,21 @@ jobs:
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "${{ github.workflow }} ###${{ job.status }}!"
+                                  "text": "${{ github.workflow }} *${{ job.status }}!＊"
                                 }
                               },
                               {
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "*Workflow URL:*\n${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
+                                  "text": "*Workflow:*\n${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
+                                }
+                              },
+                              {
+                                "type": "section",
+                                "text": {
+                                  "type": "mrkdwn",
+                                  "text": "*Commit:*\n${{ github.event.commits.url }}"
                                 }
                               }
                             ]
