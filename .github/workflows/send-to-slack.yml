@@ -35,7 +35,7 @@ jobs:
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "*Commit:*\n${{ github.event.commits_url }}"
+                                  "text": "*Commit:*\n${{ github.event.after }}"
                                 }
                               }
                             ]
