@@ -16,8 +16,8 @@ jobs:  # jobを定義していく
     services:
       mysql:  # コンテナ名
         image: mysql:8.0.23  # 使いたいimageを指定
-        volumes:  # コンテナにmountしたいファイルを定義
-          - mysqlconf.d:/etc/mysql/conf.d
+        # volumes:  # コンテナにmountしたいファイルを定義
+        #   - mysqlconf.d:/etc/mysql/conf.d
         env:  # 環境変数を定義
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
           BIND_ADDRESS: 0.0.0.0
@@ -48,32 +48,3 @@ jobs:  # jobを定義していく
       
       - name: Run rspec
         run: bundle exec rspec
-
-  # - name: Run tests  # step name
-  #   run: bundle exec rspec
-
-  # - uses: actions/checkout@v2
-  # - uses: actions/setup-node@v1
-  # - run: npm install -g bats
-  # - run: bats -v
-  # Run Rspec # このjobの名前
-  #   runs-on: ubuntu-latest  # このjobを実行するコンテナ
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Set up Ruby 3.0
-  #       uses: action/setup-ruby@v1
-  #       with:
-  #         ruby-version: 3.0.2
-  #     - name: Test with Rspec
-  #       run: |
-  #         gem install bundler
-  #         bundle install --path vendor/bundle --quiet --jobs 4 --retry 3
-  #         bundle exec rspec
-
-    # steps:
-    #   - uses: actions/checkout@v2
-    #   - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-    #     with:
-    #       heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-    #       heroku_app_name: "thawing-reaches-18664"
-    #       heroku_email: "q8tpk5yaqkutovncyabe@gmail.com"

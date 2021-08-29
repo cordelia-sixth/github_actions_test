@@ -1,16 +1,15 @@
+# test
 name: develop
 
 on:
   push:
-    branches: [ develop ]
+    branches:
+      - main
 
 jobs:
   test:
     runs-on: ubuntu-latest
-  
-    steps:
-      - name: Check branch
-      - uses: actions/checkout@v2
-      - run: |
-        git status
-        git branch
+    steps:  # 各実行step
+      - uses: actions/checkout@v2  # 使用するソースコード。repositoryからdownloadする
+      - run: git status
+      - run: git branch

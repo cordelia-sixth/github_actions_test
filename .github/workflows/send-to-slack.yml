@@ -1,0 +1,66 @@
+name: Slack Notification
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  send-message:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+        - run: |
+            curl -X POST \
+                 -H "Content-type: application/json; charset=utf-8" \
+                 -d '{
+                        "attachments": [
+                          {
+                            "color": "#05f234",
+                            "blocks": [
+                              {
+                                "type": "section",
+                                "text": {
+                                  "type": "mrkdwn",
+                                  "text": "${{ github.workflow }} `${{ job.status }}`"
+                                }
+                              },
+                              {
+                                "type": "section",
+                                "text": {
+                                  "type": "mrkdwn",
+                                  "text": "*Workflow*\n<${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}|${{ github.workflow }}>"
+                                }
+                              },
+                              {
+                                "type": "section",
+                                "text": {
+                                  "type": "mrkdwn",
+                                  "text": "*Commit*\n<${{ github.event.commits[0].url }}|${{ github.event.commits[0].id }}>"
+                                }
+                              },
+                              {
+                                "type": "section",
+                                "text": {
+                                  "type": "mrkdwn",
+                                  "text": "*Repo*\n<${{ github.event.repository.url }}|${{ github.repository }}>"
+                                }
+                              },
+                              {
+                                "type": "section",
+                                "text": {
+                                  "type": "mrkdwn",
+                                  "text": "*Ref*\n${{ github.ref }}"
+                                }
+                              },
+                              {
+                                "type": "section",
+                                "text": {
+                                  "type": "mrkdwn",
+                                  "text": "*Author*\n${{ github.event.pusher.name }}"
+                                }
+                              },
+                            ]
+                          }
+                        ]
+                      }' \
+                    ${{ secrets.SLACK_WEBHOOK_URL }}
