@@ -28,7 +28,7 @@ jobs:
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "*Workflow:*\n${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}"
+                                  "text": "*Workflow:*\n`<${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}|${{ github.run_id }}>`"
                                 }
                               },
                               {
