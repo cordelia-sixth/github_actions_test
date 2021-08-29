@@ -49,14 +49,14 @@ jobs:
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "*Ref*\n${{ github.event.pusher.name }}"
+                                  "text": "*Ref*\n${{ github.ref }}"
                                 }
                               },
                               {
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "*Author*\n${{ github.ref }}"
+                                  "text": "*Author*\n${{ github.event.pusher.name }}"
                                 }
                               },
                             ]
