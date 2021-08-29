@@ -2,7 +2,7 @@ name: Github Action with Rspec  # workflow name
 
 on:  # トリガーにするイベントを定義
   push:  # repositoryにpush
-    branches: [ branch ]  # branchブランチが対象
+    branches: [ develop ]  # developブランチが対象
 
 jobs:  # jobを定義していく
   init:  # job name
