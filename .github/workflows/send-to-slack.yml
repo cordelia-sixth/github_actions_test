@@ -21,21 +21,21 @@ jobs:
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "${{ github.workflow }} *${{ job.status }}!*"
+                                  "text": "${{ github.workflow }} `${{ job.status }}`"
                                 }
                               },
                               {
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "*Workflow*\n`<${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}|${{ github.workflow }}>`"
+                                  "text": "*Workflow*\n<${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}|${{ github.workflow }}>"
                                 }
                               },
                               {
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "*Commit*\n`<${{ github.event.commits[0].url }}|${{ github.event.commits[0].id }}>`"
+                                  "text": "*Commit*\n<${{ github.event.commits[0].url }}|${{ github.event.commits[0].id }}>"
                                 }
                               },
                               {
@@ -49,7 +49,7 @@ jobs:
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "`<mailto:bob@example.com|Email Bob Roberts>`"
+                                  "text": "${{ github.event.repository.default_branch }}"
                                 }
                               },
                             ]
