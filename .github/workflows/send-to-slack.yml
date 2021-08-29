@@ -37,7 +37,21 @@ jobs:
                                   "type": "mrkdwn",
                                   "text": "*Commit:*\n${{ github.event.commits[0].url }}"
                                 }
-                              }
+                              },
+                              {
+                                "type": "section",
+                                "text": {
+                                  "type": "mrkdwn",
+                                  "text": "<mailto:bob@example.com|Email Bob Roberts>"
+                                }
+                              },
+                              {
+                                "type": "section",
+                                "text": {
+                                  "type": "mrkdwn",
+                                  "text": "`<mailto:bob@example.com|Email Bob Roberts>`"
+                                }
+                              },
                             ]
                           }
                         ]
