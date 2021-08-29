@@ -42,7 +42,7 @@ jobs:
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "<http://example.com|Email Bob Roberts>"
+                                  "text": "*Repo*\n<${{ github.event.repository.url }}|${{ github.repository }}>"
                                 }
                               },
                               {
