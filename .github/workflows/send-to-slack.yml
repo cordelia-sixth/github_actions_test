@@ -2,7 +2,7 @@ name: Slack Notification
 
 on:
   push:
-    branches: [develop]
+    branches: [main]
 
 jobs:
   send-message:
@@ -64,5 +64,4 @@ jobs:
                         ]
                       }' \
                     ${{ secrets.SLACK_WEBHOOK_URL }}
-  
   
