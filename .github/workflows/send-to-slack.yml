@@ -35,7 +35,7 @@ jobs:
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "*Commit*\n${{ github.event.commits[0].id }}"
+                                  "text": "*Commit*\n`<${{ github.event.commits[0].url }}|${{ github.event.commits[0].id }}>`"
                                 }
                               },
                               {
