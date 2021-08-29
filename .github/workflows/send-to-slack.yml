@@ -28,14 +28,14 @@ jobs:
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "*Workflow:*\n`<${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}|${{ github.run_id }}>`"
+                                  "text": "*Workflow*\n`<${{ github.event.repository.url }}/actions/runs/${{ github.run_id }}|${{ github.workflow }}>`"
                                 }
                               },
                               {
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "*Commit:*\n${{ github.event.commits[0].url }}"
+                                  "text": "*Commit*\n${{ github.event.commits[0].url }}"
                                 }
                               },
                               {
