@@ -42,7 +42,7 @@ jobs:
                                 "type": "section",
                                 "text": {
                                   "type": "mrkdwn",
-                                  "text": "<mailto:bob@example.com|Email Bob Roberts>"
+                                  "text": "<http://example.com|Email Bob Roberts>"
                                 }
                               },
                               {
